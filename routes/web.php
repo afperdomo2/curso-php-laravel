@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('test');
+    return view('test', [
+        'title' => 'Página de test',
+        'description' => 'Curso de Laravel en Platzi'
+    ]);
 });
