@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+
+Route::resource('/expense_report', 'App\Http\Controllers\ExpenseReportController');
