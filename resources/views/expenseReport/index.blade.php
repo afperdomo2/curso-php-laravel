@@ -14,6 +14,7 @@
                     <tr>
                         <th>Title</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -22,6 +23,9 @@
                             <td scope="row">{{ $expenseReport->title }}</td>
                             <td>
                                 <a href="/expense_reports/{{ $expenseReport->id }}/edit">Edit</a>
+                            </td>
+                            <td>
+                                <a href="/expense_reports/{{ $expenseReport->id }}/confirmDelete">Delete</a>
                             </td>
                         </tr>
                         @endforeach

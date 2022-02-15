@@ -63,7 +63,7 @@ class ExpenseReportController extends Controller
     public function edit($id)
     {
         return view('expenseReport.edit',[
-            'report' => ExpenseReport::find($id)
+            'report' => ExpenseReport::findOrFail($id)
         ]);
     }
 
@@ -90,6 +90,14 @@ class ExpenseReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = ExpenseReport::find($id);
+        $report->delete();
+        return redirect('/expense_reports');
+    }
+
+    public function confirmDelete($id) {
+        return view('expenseReport.confirmDelete',[
+            'report' => ExpenseReport::findOrFail($id)
+        ]);
     }
 }
