@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ExpenseReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SumaryReport;
 
 class ExpenseReportController extends Controller
 {
@@ -107,5 +109,17 @@ class ExpenseReportController extends Controller
         return view('expenseReport.confirmDelete',[
             'report' => ExpenseReport::findOrFail($id)
         ]);
+    }
+
+    public function confirmSendEmail($id) {
+        return view('expenseReport.confirmSendEmail',[
+            'report' => ExpenseReport::findOrFail($id)
+        ]);
+    }
+
+    public function SendEmail(Request $request, $id) {
+        $report = ExpenseReport::findOrFail($id);
+        Mail::to($request->get('email'))->send(new SumaryReport($report));
+        return redirect('/expense_reports/'.$id);
     }
 }

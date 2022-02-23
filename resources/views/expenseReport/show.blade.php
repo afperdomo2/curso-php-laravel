@@ -6,6 +6,7 @@
             <h2>Report: {{ $report->title }}</h2>
             <a class="btn btn-sm btn-primary" href="/expense_reports/{{ $report->id }}/expenses/create">New expense</a>
             <a class="btn btn-secondary btn-sm" href="/expense_reports" role="button">Back</a>
+            <a class="btn btn-info btn-sm" href="/expense_reports/{{ $report->id }}/confirmSendEmail" role="button">Send email</a>
             <table class="table table-sm">
                 <thead>
                     <tr>
