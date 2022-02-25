@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('content')
     <h2>Delete Report: {{ $report->id }} ?</h2>

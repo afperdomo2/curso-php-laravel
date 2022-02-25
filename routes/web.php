@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', 'App\Http\Controllers\HomeController@index');
-
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
 Route::resource('/expense_reports', 'App\Http\Controllers\ExpenseReportController');
 Route::get('/expense_reports/{id}/confirmDelete', 'App\Http\Controllers\ExpenseReportController@confirmDelete');

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('content')
     <h2>Edit Report: {{ $report->id }}</h2>
